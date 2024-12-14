@@ -10,7 +10,10 @@ API Queries: Restricting free-tier users to 5 API queries per day.
 Resource Access: Enforcing usage limits on premium features or content access.
 This approach ensures that applications remain protected while offering a controlled, scalable user experience.
 
-This repo is a demo of using ratelimiting by following algorithms
+**This repo is a demo of using ratelimiting by following algorithms**
+![image](https://github.com/user-attachments/assets/d075f62f-b45b-48f1-8971-1c051f339365)
+
+
 
 ## Algorithms used for rate limiting
 
