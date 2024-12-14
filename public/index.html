@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate Limiting Demo</title>
+</head>
+<body>
+  <h1>Rate Limiting Demo</h1>
+
+  <!-- Buttons to trigger API calls -->
+  <button onclick="callAPI('/api/button1')">Call API 1</button>
+  <button onclick="callAPI('/api/button2')">Call API 2</button>
+  <button onclick="callAPI('/api/button3')">Call API 3</button>
+
+  <h2>Responses:</h2>
+  <ul id="response-list" style="list-style-type: none; padding: 0;"></ul>
+
+  <script>
+    async function callAPI(endpoint) {
+      try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        
+        // Create a new list item with the response
+        const li = document.createElement("li");
+        li.textContent = `${new Date().toLocaleTimeString()} - ${JSON.stringify(data)}`;
+        
+        // Add the new item to the top of the list
+        const responseList = document.getElementById("response-list");
+        responseList.prepend(li);
+      } catch (error) {
+        const li = document.createElement("li");
+        li.textContent = `${new Date().toLocaleTimeString()} - Error calling API`;
+        document.getElementById("response-list").prepend(li);
+      }
+    }
+  </script>
+</body>
+</html>
